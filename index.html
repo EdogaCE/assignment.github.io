@@ -4,28 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form>
-      <label>Content</label
-      ><textarea placeholder="Text Here" id="content" name="content"></textarea>
-      <label> Redact Sign</label>
-      <input placeholder="Redact Sign" id="sign"
-      <label>Redact</label><input placeholder="Redacted word" id="redact" />
-      <button id="submit">Redact Now</button>
-    </form>
-    <div>
-      <h2>Display Here</h2>
-      <p id="show"></p>
-      <h3>Count</h3>
-      <p id="count"></p>
+    <div class="card">
+      <div>
+        <form>
+          <div class="input">
+            <label class="label">Content</label
+            ><textarea
+              placeholder="Text Here"
+              id="content"
+              name="content"
+              cols="5"
+              rows="10"
+            ></textarea>
+          </div>
+          <div class="input">
+            <label class="label"> Redact Sign</label>
+            <input placeholder="Redact Sign" id="sign" />
+          </div>
+          <div class="input">
+            <label class="label">Redact</label>
+            <input placeholder="Redacted word" id="redact" />
+          </div>
+          <div class="submit">
+            <button id="submit">Redact Now</button>
+          </div>
+        </form>
+        <div class="input">
+          <h2>Display Here</h2>
+          <textarea
+            id="show"
+            placeholder="Show Here"
+            id="content"
+            name="content"
+            cols="5"
+            rows="10"
+          >
+          </textarea>
+        </div>
+      </div>
     </div>
-
     <script>
-      
       const id = (val) => document.getElementById(val);
       const btn = id("submit");
-      
+
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         const content = id("content").value;
