@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label>Content</label
+      ><textarea placeholder="Text Here" id="content" name="content"></textarea>
+      <label> Redact Sign</label>
+      <input placeholder="Redact Sign" id="sign"
+      <label>Redact</label><input placeholder="Redacted word" id="redact" />
+      <button id="submit">Redact Now</button>
+    </form>
+    <div>
+      <h2>Display Here</h2>
+      <p id="show"></p>
+      <h3>Count</h3>
+      <p id="count"></p>
+    </div>
+
+    <script>
+      
+      const id = (val) => document.getElementById(val);
+      const btn = id("submit");
+      
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const content = id("content").value;
+        const sign = id("sign").value;
+        const redact = id("redact").value;
+        const show = id("show");
+        // document.getElementById('count').textContent = contArray.length;
+
+        const contArray = content.split(" ");
+        const countArray = contArray.length;
+        const redactArray = redact.split(",");
+
+        const newRedact = contArray.map((val, index) => {
+          for (let i = 0; i < redactArray.length; i++) {
+            redactArray[i] == val ? (contArray[index] = sign) : "";
+          }
+        });
+        show.innerText = contArray.join(" ");
+      });
+    </script>
+  </body>
+</html>
